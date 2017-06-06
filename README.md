@@ -1,4 +1,11 @@
-## 原始数据
+## 获得数据
+1. `cd data/`
+2. `cat subdata-* > data.tar.gz`
+3. `tar -zxvf data.tar.gz`
+4. `rm data.tar.gz subdata-*` 
+
+
+## 数据条目
 ### user.txt
 64452条用户信息，包括：
 用户编号，用户编号2(暂时不用)，昵称，性别，个性签名
@@ -55,67 +62,14 @@
 
 ## 构建模型
 ### 构建原始数据
-```python
-#coding=utf-8
-import matplotlib
-from graph_tool.all import *
 
-def saveAllGraph():
-    g=Graph()
+1. 使用build.py，对user进行去重，对star和relation中含有溢出用户的条目。
+2. 以user为节点，star和relation为边，构建一个含有重边的有向图。
 
-    fuser=open('user.txt','r')
-    uidDict={}
-    cnt=0
-    cntx=0
-    for line in fuser:
-        cnt+=1
-        ids=line.split('\t')
-        if uidDict.has_key(ids[0]):
-            continue
-        uidDict[ids[0]]=cntx
-        cntx+=1
-
-    g.add_vertex(cntx)
-    fuser.close()
-    print str(cntx)+' in '+str(cnt)+' users have been loaded.'
-
-    fstar=open('star.txt','r')
-    cnt=0
-    cntx=0
-    for line in fstar:
-        cnt+=1
-        ids=line.split('\t')
-        if uidDict.has_key(ids[0]) and uidDict.has_key(ids[1]) and not ids[0]==ids[1]:
-            cntx+=1
-            g.add_edge(uidDict[ids[0]],uidDict[ids[1]])
-    print str(cntx)+' in '+str(cnt)+' stars have been loaded.'
-    fstar.close()
-
-    frelation=open('relation.txt','r')
-    cnt=0
-    cntx=0
-    for line in frelation:
-        cnt+=1
-        ids=line.split('\t')
-        if uidDict.has_key(ids[0]) and uidDict.has_key(ids[1][:-1]):
-            cntx+=1
-            g.add_edge(uidDict[ids[0]],uidDict[ids[1][:-1]])
-    print str(cntx)+' in '+str(cnt)+' relations have been loaded.'
-    frelation.close()
-    g.save("graphAll.xml.gz")
-
-if __name__=='__main__':
-    saveAllGraph()
-
-```
-user vertex:	64422
-star edge:		2570280
-relation edge:	9051246
+|-|-|
+|user vertex|64422|
+|star edge|2570280|
+|relation edge|9051246|
 
 ### 删除入度为1的节点
-```python
-
-```
-vertex:
-edge:
 

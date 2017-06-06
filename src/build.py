@@ -5,7 +5,7 @@ from graph_tool.all import *
 def saveAllGraph():
 	g=Graph()
 
-	fuser=open('user.txt','r')
+	fuser=open('../data/user.txt','r')
 	uidDict={}
 	cnt=0
 	cntx=0
@@ -21,7 +21,7 @@ def saveAllGraph():
 	fuser.close()
 	print str(cntx)+' in '+str(cnt)+' users have been loaded.'
 
-	fstar=open('star.txt','r')
+	fstar=open('../data/star.txt','r')
 	cnt=0
 	cntx=0
 	for line in fstar:
@@ -33,7 +33,7 @@ def saveAllGraph():
 	print str(cntx)+' in '+str(cnt)+' stars have been loaded.'
 	fstar.close()
 	
-	frelation=open('relation.txt','r')
+	frelation=open('../data/relation.txt','r')
 	cnt=0
 	cntx=0
 	for line in frelation:
@@ -44,7 +44,7 @@ def saveAllGraph():
 			g.add_edge(uidDict[ids[0]],uidDict[ids[1][:-1]])
 	print str(cntx)+' in '+str(cnt)+' relations have been loaded.'
 	frelation.close()
-	g.save("graphAll.xml.gz")
+	g.save("../data/graphAll.xml.gz")
 	
 if __name__=='__main__':
 	saveAllGraph()
