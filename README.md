@@ -66,6 +66,7 @@
 1. 使用build.py，对user进行去重，对star和relation中含有溢出用户的条目。
 2. 以user为节点，star和relation为边，构建一个含有重边的有向图。
 
+|||
 |-|-|
 |user vertex|64422|
 |star edge|2570280|
