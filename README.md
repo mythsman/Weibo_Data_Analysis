@@ -124,16 +124,19 @@
 #### SFDP绘图算法
 这是一个复杂度为O(V*logV)的绘图算法。
 所谓SFDP，是一种多级受力导向(multilevel force-directed placement)的绘图方式。
+
 ![sfdp_layout](pic/sfdp_layout500.png)
 
 #### 径向布局
 这个算法是一个复杂度为O(V+E)的绘图算法。
 大概思想是随机选一个中心点，以这个中心点为根生成一个最小生成树，用节点离中心点的距离代表树中离根节点的距离。
+
 ![radial_tree_layout](pic/radial_tree_layout500.png)
 
 #### ARF绘图算法
 这个算法是一个复杂度为O(V*V)的绘图算法。
 所谓ARF，是指"attractive and repulsive forces"，即“有吸引力和排斥力”，简而言之，就是将边看成是弹簧，边权越大，弹簧越紧，边的长度越短;边权越小，弹簧越送，边的长度越长，这样就可以生成一个较为清楚的图案。
+
 ![arf_layout](pic/arf_layout500.png)
 
 
@@ -143,10 +146,12 @@
 
 #### 随机块模型(　stochastic block model)
 我们对随机块模型生成的图中用相同的颜色、相同的图案来表示一个社团。
+
 ![](pic/blockmodel500.png)
 
 #### 嵌套随机块模型( nested stochastic block model)
 我们对嵌套随机模型采用了霍尔顿分层(Holden hierarchy)进行可视化，相同颜色的图案表示一个社团，有向箭头表示层级关系。
+
 ![](pic/nestedblockmodel500.png)
 
 ## 参考资料
