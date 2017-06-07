@@ -93,7 +93,7 @@
 我们统计了数据集中任意两个结点之间最短路的长度，统计之后发现绝大多数的点之间的距离在3以内，分布成先上升后下降的趋势，并且所有的结点之间的距离都不大于9。为了方便演示，我们在图一的基础上对数值取了对数作为图二。
 
 ### PageRank分析
-算法参考[这里](https://graph-tool.skewed.de/static/doc/centrality.html#graph_tool.centrality.pagerank)，复杂度约为O(V+E)。
+算法复杂度约为O(V+E)。
 运行draw-pagerank.py。
 
 ![](pic/pagerank.png)
@@ -120,4 +120,38 @@
 
 可见总体上我们的样本能较好的体现总体的特征。
 
-### 
+### 样本可视化
+#### SFDP绘图算法
+这是一个复杂度为O(V*logV)的绘图算法。
+所谓SFDP，是一种多级受力导向(multilevel force-directed placement)的绘图方式。
+![sfdp_layout](pic/sfdp_layout500.png)
+
+#### 径向布局
+这个算法是一个复杂度为O(V+E)的绘图算法。
+大概思想是随机选一个中心点，以这个中心点为根生成一个最小生成树，用节点离中心点的距离代表树中离根节点的距离。
+![radial_tree_layout](pic/radial_tree_layout500.png)
+
+#### ARF绘图算法
+这个算法是一个复杂度为O(V*V)的绘图算法。
+所谓ARF，是指"attractive and repulsive forces"，即“有吸引力和排斥力”，简而言之，就是将边看成是弹簧，边权越大，弹簧越紧，边的长度越短;边权越小，弹簧越送，边的长度越长，这样就可以生成一个较为清楚的图案。
+![arf_layout](pic/arf_layout500.png)
+
+
+### 分块
+分块算法主要基于非参数随机块模型(Nonparametric stochastic block model)。
+算法复杂度O(V*lnV*lnV)
+
+#### 随机块模型(　stochastic block model)
+我们对随机块模型生成的图中用相同的颜色、相同的图案来表示一个社团。
+![](pic/blockmodel500.png)
+
+#### 嵌套随机块模型( nested stochastic block model)
+我们对嵌套随机模型采用了霍尔顿分层(Holden hierarchy)进行可视化，相同颜色的图案表示一个社团，有向箭头表示层级关系。
+![](pic/nestedblockmodel500.png)
+
+## 参考资料
+[wiki pagerank](https://graph-tool.skewed.de/static/doc/centrality.html#graph_tool.centrality.pagerank)，
+[Graph-tool](https://graph-tool.skewed.de)
+[sfdp-layout](http://www.mathematica-journal.com/issue/v10i1/graph_draw.html)
+[arf-layout](http://dx.doi.org/10.1142/S0129183107011558)
+[浅谈网络数据的可视化技术](http://www.vizinsight.com/2010/12/%E6%B5%85%E8%B0%88%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%8B%EF%BC%89/)
