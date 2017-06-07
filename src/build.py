@@ -2,15 +2,18 @@
 import matplotlib
 from graph_tool.all import *
 
-def saveAllGraph():
+def saveGraph(num=None):
 	g=Graph()
 
+	# Load user.txt
 	fuser=open('../data/user.txt','r')
 	uidDict={}
 	cnt=0
 	cntx=0
 	for line in fuser:
 		cnt+=1
+		if cntx==num:
+			continue
 		ids=line.split('\t')
 		if uidDict.has_key(ids[0]):
 			continue
@@ -21,6 +24,7 @@ def saveAllGraph():
 	fuser.close()
 	print str(cntx)+' in '+str(cnt)+' users have been loaded.'
 
+	# Load star.txt
 	fstar=open('../data/star.txt','r')
 	cnt=0
 	cntx=0
@@ -33,6 +37,7 @@ def saveAllGraph():
 	print str(cntx)+' in '+str(cnt)+' stars have been loaded.'
 	fstar.close()
 	
+	# Load relation.txt
 	frelation=open('../data/relation.txt','r')
 	cnt=0
 	cntx=0
@@ -44,7 +49,20 @@ def saveAllGraph():
 			g.add_edge(uidDict[ids[0]],uidDict[ids[1][:-1]])
 	print str(cntx)+' in '+str(cnt)+' relations have been loaded.'
 	frelation.close()
-	g.save("../data/graphAll.xml.gz")
+
+	# Remove isolated vertex
+	for v in reversed(sorted(g.vertices())):
+		if v.in_degree()==0 and v.out_degree()==0:
+			g.remove_vertex(v)
+	
+	print "Totally we have "+str(g.num_vertices())+" vertices and "+str(g.num_edges())+" edges";
+
+	# Save data
+	if num==None:
+		g.save("../data/graphAll.xml.gz")
+	else:
+		g.save("../data/graph"+str(num)+".xml.gz")
+		
 	
 if __name__=='__main__':
-	saveAllGraph()
+	saveGraph(500)
