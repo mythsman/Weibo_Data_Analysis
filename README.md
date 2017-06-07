@@ -155,8 +155,13 @@
 ![](pic/nestedblockmodel500.png)
 
 ## 参考资料
-[wiki pagerank](https://graph-tool.skewed.de/static/doc/centrality.html#graph_tool.centrality.pagerank)，
+[wiki pagerank](https://graph-tool.skewed.de/static/doc/centrality.html#graph_tool.centrality.pagerank)
+
 [Graph-tool](https://graph-tool.skewed.de)
+
 [sfdp-layout](http://www.mathematica-journal.com/issue/v10i1/graph_draw.html)
+
 [arf-layout](http://dx.doi.org/10.1142/S0129183107011558)
+
 [浅谈网络数据的可视化技术](http://www.vizinsight.com/2010/12/%E6%B5%85%E8%B0%88%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%8B%EF%BC%89/)
+
