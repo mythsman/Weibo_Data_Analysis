@@ -12,7 +12,7 @@ plt.plot(res[0],label="Distance distribution")
 plt.legend(loc="upper right")
 plt.xlabel("Distance")
 plt.ylabel("Count")
-fig.savefig("../pic/distance.svg")
+fig.savefig("../pic/distance.png")
 
 fig=plt.figure()
 res[0][0]=1
@@ -20,5 +20,5 @@ plt.plot(np.log10(res[0]),label="Log-distance distribution")
 plt.legend(loc="upper right")
 plt.xlabel("Distance")
 plt.ylabel("Log-count")
-fig.savefig("../pic/log-distance.svg")
+fig.savefig("../pic/log-distance.png")
 

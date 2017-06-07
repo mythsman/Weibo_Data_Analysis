@@ -11,5 +11,4 @@ plt.hist(np.log10(pr.a),label="PageRank",bins=100)
 plt.legend(loc="upper right")
 plt.xlabel("PageRank")
 plt.ylabel("Count")
-fig.savefig('../pic/pagerank.svg')
-
+fig.savefig('../pic/pagerank.png')

@@ -14,6 +14,4 @@ plt.ylim(0,1000)
 plt.legend(loc="upper right")
 plt.xlabel("Degree")
 plt.ylabel("Count")
-fig.savefig("../pic/degree.svg")
-
-
+fig.savefig("../pic/degree.png")
