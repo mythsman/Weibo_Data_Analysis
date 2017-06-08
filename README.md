@@ -208,8 +208,6 @@ where dij is the (possibly directed and/or weighted) distance from i to j. In ca
 
 ![](pic/closeness500.png)
 
-### 
-
 
 ## 可视化算法
 ### SFDP绘图算法
