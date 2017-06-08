@@ -76,7 +76,6 @@
 
 ### 入度出度分析
 算法简单不提，复杂度O(|V|)。
-运行draw-degree.py。
 
 ![](pic/degree.png)
 
@@ -88,7 +87,6 @@
 
 ### 直径分析
 算法简单不提，复杂度O(V*V)
-运行draw-distance.py。
 
 ![](pic/distance.png)
 ![](pic/log-distance.png)
@@ -102,8 +100,15 @@
 
 
 ### PageRank分析
+
+The value of PageRank [pagerank-wikipedia] of vertex v, PR(v), is given iteratively by the relation:
+$$
+PR(v) = \frac{1-d}{N} + d \sum_{u \in \Gamma^{-}(v)}
+        \frac{PR (u)}{d^{+}(u)}
+$$
+where $\Gamma^{-}(v)$ are the in-neighbours of v, $d^{+}(w)$ is the out-degree of w, and d is a damping factor.
+
 算法复杂度约为O(V+E)。
-运行draw-pagerank.py。
 
 ![](pic/pagerank.png)
 
@@ -157,6 +162,16 @@
 ![](pic/pagerank500.png)
 
 ### 样本中介度(Betweenness centrality)
+
+Betweenness centrality of a vertex CB(v) is defined as,
+
+$$
+C_B(v)= \sum_{s \neq v \neq t \in V \atop s \neq t}\frac{\sigma_{st}(v)}{\sigma_{st}}
+$$
+where σst is the number of shortest geodesic paths from s to t, and σst(v) is the number of shortest geodesic paths from s to t that pass through a vertex v. This may be normalised by dividing through the number of pairs of vertices not including v, which is (n−1)(n−2)/2.
+
+时间复杂度O(VE)，空间复杂度O(VE)。
+
 #### 节点中介度
 ![](pic/betweenness_vertices500.png)
 
@@ -175,7 +190,25 @@
 |mean|0.00800424936872|
 |variance|0.0000217695437417|
 
-### 样本
+### 样本亲密中心度(Closeness centrality)
+The closeness centrality of a vertex i is defined as,
+$$
+c_i = \frac{1}{\sum_j d_{ij}}
+$$
+where dij is the (possibly directed and/or weighted) distance from i to j. In case there is no path between the two vertices, here the distance is taken to be zero.
+
+时间复杂度O(V(V+E))。
+
+|||
+|-|-|
+|max|1.0|
+|min|0.129315389116|
+|mean|0.319648787918|
+|variance|0.0346333411029|
+
+![](pic/closeness500.png)
+
+### 
 
 
 ## 可视化算法
