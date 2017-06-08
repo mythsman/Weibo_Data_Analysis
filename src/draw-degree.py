@@ -1,6 +1,7 @@
 import graph_tool as gt
 import graph_tool.stats
 import matplotlib.pyplot as plt
+import numpy as np
 
 def work(num):
 	g=gt.load_graph("../data/graph"+str(num)+".xml.gz")
@@ -18,6 +19,13 @@ def work(num):
 	plt.ylabel("Count")
 	fig.savefig("../pic/degree"+str(num)+".png")
 
+	print 'max of indegree : '+str(np.max(indegree_list))
+	print 'mean of indegree : '+str(np.mean(indegree_list))
+	print 'variance of indegree : '+str(np.var(indegree_list))
+
+	print 'max of outdegree : '+str(np.max(outdegree_list))
+	print 'mean of outdegree : '+str(np.mean(outdegree_list))
+	print 'variance of outdegree : '+str(np.var(outdegree_list))
 if __name__=='__main__':
 	work(500)
 

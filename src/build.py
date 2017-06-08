@@ -51,9 +51,10 @@ def saveGraph(num=None):
 	frelation.close()
 
 	# Remove isolated vertex
-	for v in reversed(sorted(g.vertices())):
-		if v.in_degree()==0 and v.out_degree()==0:
-			g.remove_vertex(v)
+	if num!=None:
+		for v in reversed(sorted(g.vertices())):
+			if v.in_degree()==0 and v.out_degree()==0:
+				g.remove_vertex(v)
 	
 	print "Totally we have "+str(g.num_vertices())+" vertices and "+str(g.num_edges())+" edges";
 
