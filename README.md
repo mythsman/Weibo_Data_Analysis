@@ -1,3 +1,7 @@
+# Weibo_Data_Analysis
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f973cd67eaf742a885d62bf26a255f78)](https://www.codacy.com/app/mythsman/Weibo_Data_Analysis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mythsman/Weibo_Data_Analysis&amp;utm_campaign=Badge_Grade)
+[![GitHub license](https://img.shields.io/github/license/mythsman/Weibo_Data_Analysis.svg)](https://github.com/mythsman/Weibo_Data_Analysis/blob/master/LICENSE)
 
 ## 获得数据
 数据为以用户"阿尔卑斯君"为中心向外bfs搜索得到。
