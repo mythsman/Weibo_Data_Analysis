@@ -178,7 +178,7 @@ Betweenness centrality of a vertex CB(v) is defined as,
 $$
 C_B(v)= \sum_{s \neq v \neq t \in V \atop s \neq t}\frac{\sigma_{st}(v)}{\sigma_{st}}
 $$
-where σst is the number of shortest geodesic paths from s to t, and σst(v) is the number of shortest geodesic paths from s to t that pass through a vertex v. This may be normalised by dividing through the number of pairs of vertices not including v, which is (n?1)(n?2)/2.
+where σst is the number of shortest geodesic paths from s to t, and σst(v) is the number of shortest geodesic paths from s to t that pass through a vertex v. This may be normalised by dividing through the number of pairs of vertices not including v, which is (n-1)(n-2)/2.
 
 时间复杂度O(VE)，空间复杂度O(VE)。
 
