@@ -1,4 +1,4 @@
-# Weibo_Data_Analysis
+# 微博用户数据分析报告
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f973cd67eaf742a885d62bf26a255f78)](https://www.codacy.com/app/mythsman/Weibo_Data_Analysis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mythsman/Weibo_Data_Analysis&amp;utm_campaign=Badge_Grade)
 [![GitHub license](https://img.shields.io/github/license/mythsman/Weibo_Data_Analysis.svg)](https://github.com/mythsman/Weibo_Data_Analysis/blob/master/LICENSE)
@@ -111,12 +111,13 @@
 
 ### PageRank分析
 
-The value of PageRank [pagerank-wikipedia] of vertex v, PR(v), is given iteratively by the relation:
+对于节点v的PageRank的值PR(V)被如下定义(根据维基百科)：
+
 $$
 PR(v) = \frac{1-d}{N} + d \sum_{u \in \Gamma^{-}(v)}
         \frac{PR (u)}{d^{+}(u)}
 $$
-where $\Gamma^{-}(v)$ are the in-neighbours of v, $d^{+}(w)$ is the out-degree of w, and d is a damping factor.
+其中 $\Gamma^{-}(v)$ 是v的入度邻居, $d^{+}(w)$ 是w的出度的邻居, d表示阻尼参数。
 
 算法复杂度约为O(V+E)。
 
@@ -174,11 +175,14 @@ where $\Gamma^{-}(v)$ are the in-neighbours of v, $d^{+}(w)$ is the out-degree o
 ### 样本中介度(Betweenness centrality)
 
 Betweenness centrality of a vertex CB(v) is defined as,
+顶点v的中介度CB（v）被定义为，
 
 $$
 C_B(v)= \sum_{s \neq v \neq t \in V \atop s \neq t}\frac{\sigma_{st}(v)}{\sigma_{st}}
 $$
-where σst is the number of shortest geodesic paths from s to t, and σst(v) is the number of shortest geodesic paths from s to t that pass through a vertex v. This may be normalised by dividing through the number of pairs of vertices not including v, which is (n-1)(n-2)/2.
+where σst is the number of shortest geodesic paths from s to t, and σst(v) is the number of shortest geodesic paths from s to t that pass through a vertex v. This may be normalised by dividing through the number of pairs of vertices not including v, which is (n?1)(n?2)/2.
+
+其中$\sigma_{st}$是从s到t的最短路径的数量，$\sigma_{st}(v)$是从s到t穿过顶点v的最短测路径的数量。这可以通过除以顶点对的数量来进行标准化，也就是除以(n-1)(n-1)/2。
 
 时间复杂度O(VE)，空间复杂度O(VE)。
 
@@ -201,11 +205,13 @@ where σst is the number of shortest geodesic paths from s to t, and σst(v) is 
 |variance|0.0000217695437417|
 
 ### 样本亲密中心度(Closeness centrality)
-The closeness centrality of a vertex i is defined as,
+
+对于节点i的样本亲密中心度定义如下：
 $$
 c_i = \frac{1}{\sum_j d_{ij}}
 $$
-where dij is the (possibly directed and/or weighted) distance from i to j. In case there is no path between the two vertices, here the distance is taken to be zero.
+
+其中$d_{ij}$是从i到j的（可能是有向和/或加权的）距离。 如果两个顶点之间没有路径，则此处距离为零。
 
 时间复杂度O(V(V+E))。
 
