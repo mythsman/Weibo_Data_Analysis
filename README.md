@@ -4,11 +4,13 @@
 [![GitHub license](https://img.shields.io/github/license/mythsman/Weibo_Data_Analysis.svg)](https://github.com/mythsman/Weibo_Data_Analysis/blob/master/LICENSE)
 
 ## 获得数据
-数据为以用户"阿尔卑斯君"为中心向外bfs搜索得到。
+数据为以用户"阿尔卑斯君°"为中心向外bfs搜索得到。
 
 执行src下的gen.sh,在data下生成user.txt,star.txt,relation.txt三个文件。
 
 执行src下的build.py,在data下生成graphAll.xml.gz这个基于graphtools的数据文件。
+
+注意项目中的data文件夹下已经包含了需要下载的数据，数据量还是比较大的，不要轻易git clone .
 
 ### user.txt
 64452条用户信息，包括：
@@ -77,7 +79,11 @@
 |relation edge|9051246|
 
 ### 入度出度分析
-算法简单不提，复杂度O(|V|)。
+入度：以某顶点为弧头，终止于该顶点的弧的数目称为该顶点的入度。
+
+出度：以某顶点为弧尾，起始于该顶点的弧的数目称为该顶点的出度。
+
+算法比较简单，复杂度O(|V|)，V表示节点个数。
 
 ![](pic/degree.png)
 
@@ -88,7 +94,9 @@
 需要注意的是，由于数据源并不是社交网络的全体，而是其中一个连通子图，因此在图的边界会留有很多未来得及遍历的节点，显然他们的出度都为0，因此在出度的分布中才会出现出度为0的特别多的情况。
 
 ### 直径分析
-算法简单不提，复杂度O(V*V)
+图的直径：图的直径是指任意两个顶点间距离的最大值.(距离是两个点之间的所有路的长度的最小值)。
+
+算法比较简单，复杂度O(V*V)。
 
 ![](pic/distance.png)
 ![](pic/log-distance.png)
@@ -170,7 +178,7 @@ Betweenness centrality of a vertex CB(v) is defined as,
 $$
 C_B(v)= \sum_{s \neq v \neq t \in V \atop s \neq t}\frac{\sigma_{st}(v)}{\sigma_{st}}
 $$
-where σst is the number of shortest geodesic paths from s to t, and σst(v) is the number of shortest geodesic paths from s to t that pass through a vertex v. This may be normalised by dividing through the number of pairs of vertices not including v, which is (n−1)(n−2)/2.
+where σst is the number of shortest geodesic paths from s to t, and σst(v) is the number of shortest geodesic paths from s to t that pass through a vertex v. This may be normalised by dividing through the number of pairs of vertices not including v, which is (n?1)(n?2)/2.
 
 时间复杂度O(VE)，空间复杂度O(VE)。
 
@@ -255,4 +263,3 @@ where dij is the (possibly directed and/or weighted) distance from i to j. In ca
 [arf-layout](http://dx.doi.org/10.1142/S0129183107011558)
 
 [浅谈网络数据的可视化技术](http://www.vizinsight.com/2010/12/%E6%B5%85%E8%B0%88%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%8B%EF%BC%89/)
-
